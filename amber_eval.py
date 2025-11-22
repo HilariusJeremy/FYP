@@ -160,9 +160,16 @@ def main(args):
                     continue
             
                 safe_flag_list[idx] = 1
+
+                print(safe_flag_list)
         
             metrics['chair_score'] += sum(safe_flag_list)
             metrics['chair_num'] += len(safe_flag_list)
+
+            print(f"after_process_noun: {after_process_nouns}")
+            print(f"safe_flag_list: {safe_flag_list}")
+            print(f"safe_list: {safe_list[-safe_len]}")
+            print(f"ha_list: {ha_list[-ha_len]}")
 
             hallucinated_tokens = [after_process_nouns[k] for k, v in enumerate(safe_flag_list) if v == 1]
             if hallucinated_tokens:
